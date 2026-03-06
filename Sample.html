@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<section id="Sample" class="img-section">
+    <h2>Samples of Codes</h2>
+    <div class="sample-gallery">
+        <div class="sample-item">
+            <img src="Images\thread.png" alt="Code Sample 1" onclick="openLightbox(this)">
+        </div>
+        <div class="sample-item">
+            <img src="Images\arraylistholder.png" alt="Code Sample 2" onclick="openLightbox(this)">
+        </div>
+        <div class="sample-item">
+            <img src="Images\OOPloop.png" alt="Code Sample 3" onclick="openLightbox(this)">
+        </div>
+    </div>
+    <p>This is some highlights of my codes.</p>
+    <button id="back-button">Continue?</button>
+</section>
+
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded Sample">
+</div>
+
+<style>
+
+body {
+    background-color: rgb(17, 17, 59);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+#Sample {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    animation: blurFadeIn 1s ease;
+}
+
+
+#Sample h2 {
+    margin-top: 0;
+}
+
+
+.sample-gallery {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+
+.sample-item {
+    flex: 1 1 200px;
+    max-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s forwards;
+}
+
+
+.sample-item:nth-child(1) { animation-delay: 0.2s; }
+.sample-item:nth-child(2) { animation-delay: 0.4s; }
+.sample-item:nth-child(3) { animation-delay: 0.6s; }
+
+
+.sample-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+
+.sample-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+#Sample p {
+    color: #555;
+    font-size: 14px;
+}
+
+#back-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgb(17, 17, 59);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+#back-button:hover {
+    background-color: rgb(100, 200, 255);
+}
+#contact-form button:hover {
+    background: rgb(30, 30, 90);
+}
+
+
+@keyframes blurFadeIn {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#lightbox {
+    display: none;           
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8); 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+</style>
+
+<script>
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = imgElement.src;
+    lightbox.style.display = 'flex';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+<script>
+document.getElementById('back-button').addEventListener('click', function() {
+    window.location.href = 'Contact.html'; // redirect back to main index
+});
+</script>
