@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <h3>Or email me directly: vkkcanete@gmail.com</h3>
+
+    <form id="contact-form" action="https://formspree.io/f/xabcdxyz" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+  
+    <button id="back-button">Back to About</button>
+</section>
+
+	<footer>
+		<p>The End.</p>
+	</footer>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const form = document.getElementById('contact-form');
+			form.addEventListener('submit', function(event) {
+				event.preventDefault();
+				alert('Form submitted!');
+			});
+		});
+	</script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(17, 17, 59);
+    scroll-behavior: smooth;
+}
+
+
+#contact {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    animation: blurFadeIn 1s ease;
+}
+
+
+#contact h2 {
+    margin-top: 0;
+}
+
+#contact h3 {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+}
+
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+#contact-form input,
+#contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+#contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+#contact-form button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: rgb(17, 17, 59);
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#back-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgb(17, 17, 59);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+#back-button:hover {
+    background-color: rgb(100, 200, 255);
+}
+#contact-form button:hover {
+    background: rgb(30, 30, 90);
+}
+
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+
+@keyframes blurFadeIn {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+
+#contact {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+<script>
+document.getElementById('back-button').addEventListener('click', function() {
+    window.location.href = 'Webportfolio.html'; // redirect back to main index
+});
+</script>
